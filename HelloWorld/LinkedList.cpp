@@ -86,7 +86,39 @@ void LinkedList::addAfter(int afterData, int data){
         }
     }
 }
+
 void LinkedList::deleteNode(int data){
+    
+    if (nullptr == nodePtr){
+        cout<< " Nothing to delete \n";
+    }
+    else{
+        Node *nodePtrTmp;
+        nodePtrTmp = nodePtr;
+        while (data != nodePtrTmp->data){
+            if (nullptr == nodePtrTmp->next)
+                break;
+            nodePtrTmp = nodePtrTmp->next;
+        }
+        
+        if (data == nodePtrTmp->data){
+            if (nullptr == nodePtrTmp->next){
+                nodePtrTmp->prev->next = nullptr;
+            }
+            else if (nullptr == nodePtrTmp->prev){
+                nodePtrTmp->next->prev = nullptr;
+                nodePtr = nodePtrTmp->next;
+            }
+            else{
+                nodePtrTmp->prev->next = nodePtrTmp->next;
+                nodePtrTmp->next->prev = nodePtrTmp->prev;
+
+            }
+            delete nodePtrTmp;
+            listLength--;
+        }
+        
+    }
     
 }
 void LinkedList::displayList(){

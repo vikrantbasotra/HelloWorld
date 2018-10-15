@@ -23,9 +23,11 @@ int main(int argc, const char * argv[]) {
     linkedList.appendNode(66);
     linkedList.addAtBeg(11);
     linkedList.addAtBeg(22);
-    linkedList.addAfter(124,99);
+    linkedList.addAfter(124,999);
     linkedList.addAfter(44,99);
     linkedList.displayList();
     linkedList.showLength();
-    
+    linkedList.deleteNode(999);
+    linkedList.displayList();
+    linkedList.showLength();
 }
